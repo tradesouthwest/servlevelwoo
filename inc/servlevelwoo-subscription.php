@@ -48,7 +48,7 @@ global $woocommerce, $product;
 $req_subscription = servlevelwoo_find_subscription_cat($product);
 //if(WC_Subscriptions_Cart::cart_contains_subscription()):
 if($req_subscription === true) :
-    if ( empty( $cart->recurring_cart_key ) ){
+    if ( !empty( $cart->recurring_cart_key ) ){
         $cart_fee = $cart->add_fee( 'Monthly Fee Increase', '10' );
     }
     
@@ -59,6 +59,7 @@ if($req_subscription === true) :
 add_filter('woocommerce_cart_calculate_fees', 'servlevelwoo_loop_add_to_cart', 10, 1);
 
 //get highest level required from cart items 
+//see readme.txt for ref.
 function servlevelwoo_get_product_cat($prod_cat) 
 {
 if($prod_cat == '') return;
