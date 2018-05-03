@@ -51,7 +51,7 @@ if($req_subscription === true) :
     if ( !empty( $cart->recurring_cart_key ) ){
         $cart_fee = $cart->add_fee( 'Monthly Fee Increase', '10' );
     }
-    
+//shows above Tax and below Subtotal        
         return $cart_fee; 
     
     endif; 
